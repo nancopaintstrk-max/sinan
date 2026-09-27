@@ -300,7 +300,7 @@ function App() {
             </div>
           </div>
           
-          <div className="glass-panel stat-card" style={{ background: 'var(--bg-sidebar)', border: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+          <div className="glass-panel stat-card hide-on-mobile" style={{ background: 'var(--bg-sidebar)', border: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
             <div className="stat-header" style={{ marginBottom: '8px' }}>
               <div style={{ border: '1px solid var(--border)', padding: '6px 16px', borderRadius: '20px', fontSize: '12px' }}>Filter Data</div>
             </div>
@@ -330,7 +330,7 @@ function App() {
             </div>
           </div>
           
-          <div className="glass-panel stat-card" style={{ background: '#e6e7eb' }}>
+          <div className="glass-panel stat-card hide-on-mobile" style={{ background: '#e6e7eb' }}>
              <div className="stat-header" style={{ color: '#1a1c21', fontWeight: 600 }}>
                Solved Rate
                <div style={{ background: '#1a1c21', color: 'white', width: '24px', height: '24px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -356,7 +356,7 @@ function App() {
              </div>
           </div>
           
-          <div className="glass-panel stat-card" style={{ padding: '0', position: 'relative', overflow: 'hidden' }}>
+          <div className="glass-panel stat-card mobile-sync-card" style={{ padding: '0', position: 'relative', overflow: 'hidden' }}>
              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.8 }} alt="AI" />
              <div style={{ position: 'absolute', bottom: '20px', left: '20px', right: '20px' }}>
                 <button className="btn btn-primary" onClick={() => loadData(email, password)} disabled={loading} style={{ width: '100%', padding: '12px', fontSize: '13px', display: 'flex', justifyContent: 'center' }}>

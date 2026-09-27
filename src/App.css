@@ -333,4 +333,24 @@
     padding: 12px 16px;
     white-space: nowrap;
   }
+  
+  .hide-on-mobile {
+    display: none !important;
+  }
+  
+  .mobile-sync-card {
+    min-height: auto !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+  }
+  
+  .mobile-sync-card img {
+    display: none !important;
+  }
+  
+  .mobile-sync-card > div {
+    position: static !important;
+    padding: 0 !important;
+  }
 }
