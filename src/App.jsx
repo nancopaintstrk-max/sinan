@@ -192,15 +192,15 @@ function App() {
 
   const filteredComplaints = complaints.filter(c => {
     if (filter !== 'all' && c.status !== filter) return false;
-    if (dateFilter && !c.date.toLowerCase().includes(dateFilter.toLowerCase())) return false;
-    if (issueFilter && !c.category.toLowerCase().includes(issueFilter.toLowerCase()) && !c.issue.toLowerCase().includes(issueFilter.toLowerCase())) return false;
+    if (dateFilter && !String(c.date || '').toLowerCase().includes(dateFilter.toLowerCase())) return false;
+    if (issueFilter && !String(c.category || '').toLowerCase().includes(issueFilter.toLowerCase()) && !String(c.issue || '').toLowerCase().includes(issueFilter.toLowerCase())) return false;
     if (globalSearch) {
       const searchLower = globalSearch.toLowerCase();
       if (
-        !c.id.toLowerCase().includes(searchLower) &&
-        !c.email.toLowerCase().includes(searchLower) &&
-        !c.category.toLowerCase().includes(searchLower) &&
-        !c.issue.toLowerCase().includes(searchLower)
+        !String(c.id || '').toLowerCase().includes(searchLower) &&
+        !String(c.email || '').toLowerCase().includes(searchLower) &&
+        !String(c.category || '').toLowerCase().includes(searchLower) &&
+        !String(c.issue || '').toLowerCase().includes(searchLower)
       ) {
         return false;
       }
