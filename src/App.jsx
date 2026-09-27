@@ -367,7 +367,7 @@ function App() {
         </div>
 
         {/* Filters */}
-        <div className="animate-fade-in" style={{ display: 'flex', gap: '12px', marginBottom: '24px', animationDelay: '0.2s' }}>
+        <div className="animate-fade-in" style={{ display: 'flex', gap: '12px', marginBottom: '24px', animationDelay: '0.2s', flexWrap: 'wrap' }}>
           <button className={`btn ${filter === 'all' ? 'btn-primary' : 'btn-ghost'}`} onClick={() => setFilter('all')}>All Complaints</button>
           <button className={`btn ${filter === 'pending' ? 'btn-primary' : 'btn-ghost'}`} onClick={() => setFilter('pending')}>Pending Only</button>
           <button className={`btn ${filter === 'solved' ? 'btn-primary' : 'btn-ghost'}`} onClick={() => setFilter('solved')}>Solved Only</button>
@@ -375,7 +375,7 @@ function App() {
 
         {/* Table */}
         <div className="glass-panel animate-fade-in" style={{ animationDelay: '0.3s', padding: '24px' }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '16px' }}>
             <h2 style={{ fontSize: '20px', fontWeight: 600 }}>Recent Reports</h2>
             <div style={{ position: 'relative' }}>
               <Search size={18} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--text-muted)' }} />
@@ -386,7 +386,7 @@ function App() {
                 onChange={(e) => setGlobalSearch(e.target.value)}
                 style={{ 
                   background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', 
-                  padding: '10px 16px 10px 40px', borderRadius: '8px', color: 'white', width: '250px' 
+                  padding: '10px 16px 10px 40px', borderRadius: '8px', color: 'white', width: '100%', maxWidth: '250px' 
                 }} 
               />
             </div>
@@ -424,7 +424,11 @@ function App() {
                       <td style={{ color: 'var(--text-muted)', fontWeight: 600 }}>{index + 1}</td>
                       <td style={{ color: 'var(--text-muted)' }}>{complaint.date}</td>
                       <td style={{ fontWeight: 500 }}>{complaint.id}</td>
-                      <td>{complaint.email}</td>
+                      <td>
+                        <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${complaint.email}`} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', textDecoration: 'none' }}>
+                          {complaint.email}
+                        </a>
+                      </td>
                       <td>
                         <span className="category-tag">{complaint.category}</span>
                       </td>
@@ -498,7 +502,11 @@ function App() {
             
             <div>
               <div style={{ fontSize: '13px', color: 'var(--text-muted)', marginBottom: '4px' }}>Email / Phone</div>
-              <div style={{ fontSize: '16px', fontWeight: 500 }}>{selectedComplaint.email}</div>
+              <div style={{ fontSize: '16px', fontWeight: 500 }}>
+                <a href={`https://mail.google.com/mail/?view=cm&fs=1&to=${selectedComplaint.email}`} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--primary)', textDecoration: 'none' }}>
+                  {selectedComplaint.email}
+                </a>
+              </div>
             </div>
             
             <div>
