@@ -1,5 +1,5 @@
-// Set this to your Google Apps Script Web App URL (without the ?token part)
-export const GOOGLE_APPS_SCRIPT_BASE_URL = 'https://script.google.com/macros/s/AKfycbwAV_bXcll4UFBdSkFxb3bKjgU48MVzGefO04kOvasv00iWIX3mRzt7IkXZ8gam333LOg/exec';
+// Read the Google Apps Script URL from the .env file
+export const GOOGLE_APPS_SCRIPT_BASE_URL = import.meta.env.VITE_GOOGLE_APPS_SCRIPT_URL;
 
 const MOCK_DATA = [
   { id: '1', date: '2023-10-15', customer: 'Alice Smith', email: 'alice@example.com', category: 'Shipping', issue: 'Package hasn\'t arrived after 5 days.', status: 'pending' },
