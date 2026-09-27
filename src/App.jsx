@@ -168,8 +168,18 @@ function App() {
     
     let count = 0;
     complaints.forEach(c => {
-      if (c.status === 'solved') {
-        const cDate = new Date(c.date);
+      if (c.status === 'solved' && c.date) {
+        let cDate = new Date(c.date);
+        
+        // If standard parsing fails, it's likely DD/MM/YYYY
+        if (isNaN(cDate.getTime()) && typeof c.date === 'string') {
+          const parts = c.date.split('/');
+          if (parts.length === 3) {
+            // Assume DD/MM/YYYY
+            cDate = new Date(parts[2], parts[1] - 1, parts[0]);
+          }
+        }
+
         if (!isNaN(cDate.getTime()) && cDate.getFullYear() === d.getFullYear() && cDate.getMonth() === d.getMonth() && cDate.getDate() === d.getDate()) {
           count++;
         }
